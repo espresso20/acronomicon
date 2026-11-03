@@ -187,7 +187,7 @@ var entriesManagerSpeak = []Entry{
 		Meaning:    "The state of mental exhaustion reached when management responds to staff shortages by scheduling mandatory wellness webinars.",
 		WhatItDoes: "Characterized by cynical detachment, an inability to care when production crashes, and daydreaming about quitting tech to open a goat farm. Corporate HR addresses burnout by offering a free 3-month subscription to a mindfulness meditation app instead of hiring enough engineers.",
 		Example:    "'To combat widespread team burnout, leadership has scheduled a mandatory 7:30 AM Mindfulness & Meditation Zoom call every Monday.'",
-		Related:    []string{"PIZZA-PARTY", "HERO-CULTURE", "BANDWIDTH", "PTO"},
+		Related:    []string{"KUDOS", "HERO-CULTURE", "BANDWIDTH", "PTO"},
 	},
 	{
 		Acronym:    "BUY-IN",
@@ -385,7 +385,7 @@ var entriesManagerSpeak = []Entry{
 		Meaning:    "A toxic management dysfunction where disastrous planning is 'solved' by expecting engineers to pull 80-hour weekends.",
 		WhatItDoes: "Organizations with Hero Culture celebrate the engineer who stayed awake for 36 hours drinking Red Bull to patch a server on Thanksgiving, rather than punishing the executives who refused to fund automated deployments and redundancy.",
 		Example:    "'Shout out to Kevin for sleeping under his desk to manually restart the payment gateway all weekend! Here is a $15 Starbucks gift card.'",
-		Related:    []string{"BURNOUT", "PIZZA-PARTY", "TECH-DEBT", "SLA-SALES"},
+		Related:    []string{"BURNOUT", "KUDOS", "TECH-DEBT", "SLA-SALES"},
 	},
 	{
 		Acronym:    "LEVERAGE",
@@ -542,14 +542,14 @@ var entriesManagerSpeak = []Entry{
 		Related:    []string{"RIF", "1ON1", "OKRS", "TC"},
 	},
 	{
-		Acronym:    "PIZZA-PARTY",
-		Aliases:    []string{"EMPLOYEE APPRECIATION PIZZA"},
-		FullName:   "Employee Appreciation Pizza Party",
+		Acronym:    "KUDOS",
+		Aliases:    []string{"VIRTUAL KUDOS", "SHOUT-OUT"},
+		FullName:   "Corporate Kudos (Virtual High-Five)",
 		Category:   "Corporate & Manager Speak",
 		Provider:   "Corporate",
-		Meaning:    "A $38 Domino's delivery offered in lieu of the cost-of-living salary adjustment you requested six months ago.",
-		WhatItDoes: "The ultimate low-cost corporate retention insult. When an engineering team works 70 hours a week for four months to deliver a project that nets the company $10 million in revenue, leadership rewards them with lukewarm pepperoni pizza and warm diet soda in the breakroom.",
-		Example:    "'Executive: 'We could not give bonuses this year due to macroeconomic headwinds, but there are four boxes of cheese pizza in Conference Room B!'",
+		Meaning:    "A worthless digital badge or Slack emoji reaction awarded in lieu of the monetary bonus or salary increase you actually earned.",
+		WhatItDoes: "An HR-driven recognition mechanism allowing managers to reward 60-hour workweeks with zero financial expenditure. Companies spend $40,000 on an enterprise 'employee appreciation' SaaS platform so coworkers can send each other digital high-fives instead of compensation.",
+		Example:    "'Leadership awarded the platform team a custom Slack sparkle taco emoji for fixing the billing outage over Thanksgiving weekend.'",
 		Related:    []string{"HERO-CULTURE", "BURNOUT", "TC", "ALL-HANDS"},
 	},
 	{
