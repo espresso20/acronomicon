@@ -255,8 +255,10 @@ func TestCheckCompare(t *testing.T) {
 }
 
 func TestCheckCached(t *testing.T) {
+	hits := 0
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/repos/espresso20/acronomicon/releases/latest" {
+			hits++
 			w.Header().Set("Content-Type", "application/json")
 			fmt.Fprint(w, `{"tag_name":"v1.3.0","assets":[]}`)
 			return
@@ -290,6 +292,9 @@ func TestCheckCached(t *testing.T) {
 	if st1.Latest != st2.Latest {
 		t.Errorf("cache mismatch: %q vs %q", st1.Latest, st2.Latest)
 	}
+	if hits != 1 {
+		t.Errorf("server hits after two cached checks = %d, want 1", hits)
+	}
 
 	// Check with ttl = 0 should hit server again
 	st3, err := u.CheckCached(context.Background(), 0)
@@ -297,6 +302,9 @@ func TestCheckCached(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	if hits != 2 {
+		t.Errorf("server hits after ttl=0 check = %d, want 2", hits)
+	}
 	if st3.Latest != "v1.3.0" {
 		t.Errorf("Latest = %q, want %q", st3.Latest, "v1.3.0")
 	}

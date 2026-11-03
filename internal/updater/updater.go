@@ -92,7 +92,10 @@ func New(version string) *Updater {
 }
 
 func findRepo(exePath string) string {
-	candidates := []string{filepath.Dir(exePath), ""}
+	var candidates []string
+	if exePath != "" {
+		candidates = append(candidates, filepath.Dir(exePath))
+	}
 	if dir, err := os.Getwd(); err == nil {
 		candidates = append(candidates, dir)
 	}
@@ -122,9 +125,15 @@ func findRepo(exePath string) string {
 	return ""
 }
 
+var (
+	releaseRe = regexp.MustCompile(`^v?\d+\.\d+\.\d+`)
+	// pseudo-versions from `go install ...@latest` end in a 12-char commit hash,
+	// e.g. v0.0.0-20261103120000-f70b7f4abc12
+	pseudoRe = regexp.MustCompile(`-([0-9a-f]{12})$`)
+)
+
 func isReleaseVersion(v string) bool {
-	re := regexp.MustCompile(`^v?\d+\.\d+\.\d+`)
-	return re.MatchString(v)
+	return releaseRe.MatchString(v)
 }
 
 func compareVersions(a, b string) int {
@@ -176,6 +185,10 @@ func (u *Updater) currentRevision() string {
 			if s.Key == "vcs.revision" {
 				return s.Value
 			}
+		}
+		// go install builds carry no vcs settings, only a module pseudo-version
+		if m := pseudoRe.FindStringSubmatch(info.Main.Version); m != nil {
+			return m[1]
 		}
 	}
 
@@ -370,7 +383,7 @@ func (u *Updater) CheckCached(ctx context.Context, ttl time.Duration) (Status, e
 		os.MkdirAll(cacheDir, 0o755)
 
 		data := map[string]interface{}{
-			"checked_at": st.Current,
+			"checked_at": time.Now(),
 			"current":    st.Current,
 			"latest":     st.Latest,
 			"available":  st.Available,
@@ -401,9 +414,17 @@ func (u *Updater) Update(ctx context.Context) error {
 	case MethodGit:
 		return u.updateGit(ctx)
 	case MethodGo:
+		st, err := u.Check(ctx)
+		if err == nil && !st.Available && st.Current != "unknown" {
+			fmt.Fprintln(u.Out, "Already up to date.")
+			return nil
+		}
 		return u.updateGo(ctx)
 	default:
-		return u.updateRelease(ctx)
+		if err := u.updateRelease(ctx); err != nil {
+			return fmt.Errorf("release download failed: %w; install Go or download manually from https://github.com/espresso20/acronomicon", err)
+		}
+		return nil
 	}
 }
 
@@ -619,12 +640,14 @@ func (u *Updater) updateGo(ctx context.Context) error {
 	if err != nil {
 		return err
 	}
-	defer dst.Close()
-
-	if _, err := io.Copy(dst, src); err != nil {
+	_, err = io.Copy(dst, src)
+	if cerr := dst.Close(); err == nil {
+		err = cerr
+	}
+	if err != nil {
+		os.Remove(tmp)
 		return err
 	}
-	dst.Close()
 
 	if err := swapBinary(tmp, u.ExePath); err != nil {
 		return err
