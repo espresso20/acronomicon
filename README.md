@@ -272,6 +272,12 @@ acronomicon quiz
 
 ---
 
+## 🔄 Updating
+
+`acronomicon update` (or `-u`, `/update` in the REPL) updates the tool in place. If installed from a git clone, it fetches the latest source and rebuilds the binary. If running as a standalone binary or via `go install`, it downloads the latest release asset (or falls back to `go install`). Set `ACRONOMICON_NO_UPDATE_CHECK=1` to disable the background update check in the REPL.
+
+---
+
 ## 📚 The Eleven Sacred Tomes (Categories)
 
 The Acronomicon organizes **800+ acronyms** across **11 core disciplines** and **11 ecosystem tags** (`AWS`, `Azure`, `GCP`, `CNCF`, `VMware`, `Red Hat`, `SUSE`, `Linux`, `Docker`, `👔 Corporate`, `Cloud-Agnostic`):
