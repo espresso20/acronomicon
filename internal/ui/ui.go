@@ -71,6 +71,18 @@ func providerBadge(provider string) string {
 		return Badge(BgCyan, FgBlack, "Azure")
 	case "CNCF":
 		return Badge(BgMagenta, FgBrightWhite, "CNCF")
+	case "DOCKER":
+		return Badge(BgBlue, FgBrightWhite, "Docker")
+	case "RED HAT", "REDHAT":
+		return Badge(BgRed, FgBrightWhite, "Red Hat")
+	case "SUSE":
+		return Badge(BgGreen, FgBlack, "SUSE")
+	case "LINUX":
+		return Badge(BgYellow, FgBlack, "Linux")
+	case "VMWARE":
+		return Badge(BgBlue, FgBrightWhite, "VMware")
+	case "MANAGEMENT", "CORPORATE", "HR":
+		return Badge(BgRed, FgBrightWhite, "👔 Corporate")
 	default:
 		return Badge(BgGreen, FgBlack, provider)
 	}
@@ -78,6 +90,8 @@ func providerBadge(provider string) string {
 
 func categoryColor(cat string) string {
 	switch {
+	case strings.Contains(cat, "Corporate") || strings.Contains(cat, "Manager"):
+		return FgBrightMagenta + Bold
 	case strings.Contains(cat, "Network"):
 		return FgBrightCyan
 	case strings.Contains(cat, "Security"):

@@ -32,7 +32,7 @@ func (e Entry) FirstLetter() rune {
 
 // All returns the complete sorted slice of all acronyms in the database.
 func All() []Entry {
-	all := make([]Entry, 0, 360)
+	all := make([]Entry, 0, 800)
 	all = append(all, entriesAC...)
 	all = append(all, entriesDF...)
 	all = append(all, entriesGL...)
@@ -41,6 +41,13 @@ func All() []Entry {
 	all = append(all, entriesTZ...)
 	all = append(all, entriesExtra...)
 	all = append(all, entriesExtra2...)
+	all = append(all, entriesAWSDeep...)
+	all = append(all, entriesAzureDeep...)
+	all = append(all, entriesGCPDeep...)
+	all = append(all, entriesContainersDeep...)
+	all = append(all, entriesVMwareNetDeep...)
+	all = append(all, entriesLinuxDistrosDeep...)
+	all = append(all, entriesManagerSpeak...)
 
 	sort.Slice(all, func(i, j int) bool {
 		return strings.ToUpper(all[i].Acronym) < strings.ToUpper(all[j].Acronym)
