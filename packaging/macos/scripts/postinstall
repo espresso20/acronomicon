@@ -1,0 +1,7 @@
+#!/bin/sh
+# Ensure /usr/local/bin/acronomicon is executable and link to /opt/homebrew/bin if available
+chmod 755 /usr/local/bin/acronomicon 2>/dev/null || true
+if [ -d "/opt/homebrew/bin" ] && [ ! -e "/opt/homebrew/bin/acronomicon" ]; then
+    ln -sf /usr/local/bin/acronomicon /opt/homebrew/bin/acronomicon 2>/dev/null || true
+fi
+exit 0

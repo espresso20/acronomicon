@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+    <title>The Acronomicon — Cloud Tech Bible</title>
+    <welcome file="welcome.html" mime-type="text/html"/>
+    <conclusion file="conclusion.html" mime-type="text/html"/>
+    <options customize="never" require-scripts="false" hostArchitectures="x86_64,arm64"/>
+    <domains enable_anyone="true" enable_currentUserHome="true" enable_localSystem="true"/>
+    <choices-outline>
+        <line choice="default">
+            <line choice="io.acronomicon.cli"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="io.acronomicon.cli" visible="false">
+        <pkg-ref id="io.acronomicon.cli"/>
+    </choice>
+    <pkg-ref id="io.acronomicon.cli" version="1.0.0" onConclusion="none">acronomicon-component.pkg</pkg-ref>
+</installer-gui-script>

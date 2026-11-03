@@ -1,0 +1,8 @@
+# Compiled binaries & release packages
+/acronomicon
+/acronomicon.exe
+/dist/
+/cmd/windows-installer/payload/*.exe
+
+# OS metadata
+.DS_Store

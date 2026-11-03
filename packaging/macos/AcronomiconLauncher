@@ -1,0 +1,18 @@
+#!/bin/zsh
+# Acronomicon.app macOS Bundle Launcher
+APP_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+BIN_PATH="$APP_DIR/Resources/acronomicon"
+
+# If run interactively from an existing terminal, execute directly
+if [ -t 0 ] && [ -t 1 ]; then
+    exec "$BIN_PATH" "$@"
+fi
+
+# When launched from Finder / Spotlight / Applications, open in macOS Terminal.app
+ESCAPED_BIN="${BIN_PATH//\"/\\\"}"
+/usr/bin/osascript <<EOF
+tell application "Terminal"
+    activate
+    do script "clear && \"$ESCAPED_BIN\""
+end tell
+EOF
