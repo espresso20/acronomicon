@@ -83,6 +83,8 @@ func providerBadge(provider string) string {
 		return Badge(BgBlue, FgBrightWhite, "VMware")
 	case "MANAGEMENT", "CORPORATE", "HR":
 		return Badge(BgRed, FgBrightWhite, "👔 Corporate")
+	case "HACKER CULTURE", "HELPDESK", "IT FOLKLORE":
+		return Badge(BgMagenta, FgBrightWhite, "👾 Nerdism")
 	default:
 		return Badge(BgGreen, FgBlack, provider)
 	}
@@ -92,6 +94,8 @@ func categoryColor(cat string) string {
 	switch {
 	case strings.Contains(cat, "Corporate") || strings.Contains(cat, "Manager"):
 		return FgBrightMagenta + Bold
+	case strings.Contains(cat, "Folklore") || strings.Contains(cat, "Nerd"):
+		return FgBrightGreen + Bold
 	case strings.Contains(cat, "Network"):
 		return FgBrightCyan
 	case strings.Contains(cat, "Security"):

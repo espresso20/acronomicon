@@ -48,6 +48,7 @@ func All() []Entry {
 	all = append(all, entriesVMwareNetDeep...)
 	all = append(all, entriesLinuxDistrosDeep...)
 	all = append(all, entriesManagerSpeak...)
+	all = append(all, entriesNerdisms...)
 
 	sort.Slice(all, func(i, j int) bool {
 		return strings.ToUpper(all[i].Acronym) < strings.ToUpper(all[j].Acronym)

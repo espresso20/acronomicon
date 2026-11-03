@@ -8,17 +8,17 @@
 ║ /    |    \  \___ |  | \(  <_> )   |  (  <_> )  Y Y  \  \  \__(  <_> )   |  \ ║
 ║ \____|__  /\___  >|__|   \____/|___|  /\____/|__|_|  /__|\___  >____/|___|  / ║
 ║         \/     \/                   \/             \/        \/           \/  ║
-║         ✦  THE BIBLE OF CLOUD TECH ACRONYMS • 800+ Entries (A–Z)  ✦           ║
+║         ✦  THE BIBLE OF CLOUD TECH ACRONYMS • 857+ Entries (A–Z)  ✦           ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 ```
 
 # 📖 THE ACRONOMICON
 
-### *The Sacred Terminal Grimoire of Cloud, Kubernetes, Security, Networking, DevOps & Manager Speak*
+### *The Sacred Terminal Grimoire of Cloud, Kubernetes, Security, Networking, DevOps, Manager Speak & IT Folklore*
 
 [![Go Version](https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero_(Pure_Stdlib)-success?style=for-the-badge&logo=checkmarx&logoColor=white)](#️-under-the-hood)
-[![Acronyms](https://img.shields.io/badge/Acronyms-800%2B_(A--Z)-f59e0b?style=for-the-badge&logo=bookstack&logoColor=white)](#-the-eleven-sacred-tomes-categories)
+[![Acronyms](https://img.shields.io/badge/Acronyms-857%2B_(A--Z)-f59e0b?style=for-the-badge&logo=bookstack&logoColor=white)](#-the-twelve-sacred-tomes-categories)
 [![Platforms](https://img.shields.io/badge/Platform-macOS_%7C_Windows_%7C_Linux-8b5cf6?style=for-the-badge&logo=windowsterminal&logoColor=white)](#-installation)
 
 <p align="center">
@@ -29,8 +29,9 @@
 [⚡ Quick Start](#-quick-start) •
 [📦 Installation](#-installation) •
 [🖥️ Terminal Showcase](#️-terminal-showcase) •
-[👔 Manager Speak Tome](#-the-eleven-sacred-tomes-categories) •
-[📚 The 11 Tomes](#-the-eleven-sacred-tomes-categories) •
+[👔 Manager Speak Tome](#-the-twelve-sacred-tomes-categories) •
+[👾 IT Folklore & Nerdisms](#-the-twelve-sacred-tomes-categories) •
+[📚 The 12 Tomes](#-the-twelve-sacred-tomes-categories) •
 [🪄 Grimoire of Spells](#-grimoire-of-spells-cli--repl) •
 [🛠️ Building](#️-building--packaging-from-source)
 
@@ -42,12 +43,12 @@
 
 Modern cloud engineering is **90% YAML indentation** and **10% nodding confidently** when someone on a Zoom call says:
 
-> *"We need to verify our **CSPM** and **CWPP** posture inside the **CNAPP** before we cut over the **Multi-AZ** **EKS** **ALBs** from **SNAT** to **IPv6** **CIDR** blocks with **mTLS** via **eBPF** and **IRSA** to hit our **SOC 2** **RTO**/**RPO** **SLOs**—so let's **circle back** after the **standup** before our **1:1** to avoid a **PIP**."*
+> *"We need to verify our **CSPM** and **CWPP** posture inside the **CNAPP** before we cut over the **Multi-AZ** **EKS** **ALBs** from **SNAT** to **IPv6** **CIDR** blocks with **mTLS** via **eBPF** and **IRSA** to hit our **SOC 2** **RTO**/**RPO** **SLOs**—so let's **circle back** after the **standup** before our **1:1** to avoid a **PIP** unless this is pure **PEBKAC**."*
 
-**The Acronomicon** is a blazing-fast, zero-dependency, full-color CLI and interactive REPL written in pure Go that lives right in your terminal. Covering **800+ acronyms** across **AWS, Azure, GCP, Kubernetes, Docker, VMware, Linux, Red Hat, SUSE, Enterprise Networking**, and a bonus **Corporate & Manager Speak** section, each entry delivers:
+**The Acronomicon** is a blazing-fast, zero-dependency, full-color CLI and interactive REPL written in pure Go that lives right in your terminal. Covering **857+ acronyms** across **AWS, Azure, GCP, Kubernetes, Docker, VMware, Linux, Red Hat, SUSE, Enterprise Networking**, **Corporate & Manager Speak**, and **IT Folklore & Nerdisms**, each entry delivers:
 
-1. 🏷️ **What It Stands For** (plus aliases like `K8s` ↔ `KUBERNETES`, `ENTRA-ID` ↔ `AAD`, `1ON1` ↔ `1:1`)
-2. ☁️ **Provider & Category Badges** (`Cloud-Agnostic`, `AWS`, `Azure`, `GCP`, `CNCF`, `VMware`, `Red Hat`, `SUSE`, `Linux`, `👔 Corporate`)
+1. 🏷️ **What It Stands For** (plus aliases like `K8s` ↔ `KUBERNETES`, `ENTRA-ID` ↔ `AAD`, `1ON1` ↔ `1:1`, `PEBKAC` ↔ `PEBMAC`)
+2. ☁️ **Provider & Category Badges** (`Cloud-Agnostic`, `AWS`, `Azure`, `GCP`, `CNCF`, `VMware`, `Red Hat`, `SUSE`, `Linux`, `👔 Corporate`, `👾 Nerdism`)
 3. ⚡ **Meaning (TL;DR)** — A crisp, no-fluff one-sentence summary
 4. 🧠 **What It Does & Why It Matters** — How it actually works under the hood (or why HR uses it to terrorize engineers)
 5. 🛠️ **In Practice / Real-World Example** — Concrete production commands, real architecture patterns, or cynical corporate dialogue
@@ -138,7 +139,32 @@ Modern cloud engineering is **90% YAML indentation** and **10% nodding confident
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ```
 
-### 4. Interactive Cloud Quiz Mode (`acronomicon quiz`)
+### 4. IT Folklore & Nerdisms (`acronomicon pebkac`)
+
+```text
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  [ PEBKAC ] (aka PEBMAC, EBKAC)   [👾 Nerdism]  [IT Folklore & Nerdisms]      │
+│  ✦ Problem Exists Between Keyboard And Chair                                 │
+├──────────────────────────────────────────────────────────────────────────────┤
+│  MEANING (TL;DR)                                                             │
+│  The granddaddy of all IT helpdesk diagnostics, identifying the human user   │
+│  as the sole root cause of the computer failure.                             │
+│                                                                              │
+│  WHAT IT DOES & WHY IT MATTERS                                               │
+│  Used across IT support teams to classify tickets where hardware, operating  │
+│  systems, and network connections are performing flawlessly, but the user    │
+│  forgot their password, unplugged their own mouse, or mistook a search bar   │
+│  for an address bar.                                                         │
+│                                                                              │
+│  IN PRACTICE / REAL-WORLD EXAMPLE                                            │
+│  ▸ 'After 45 minutes of troubleshooting why the printer was offline, the     │
+│  ▸ technician discovered a PEBKAC issue: the power strip was turned off.'    │
+├──────────────────────────────────────────────────────────────────────────────┤
+│  See Also: PICNIC • ID10T • LAYER-8 • RTFM                                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+```
+
+### 5. Interactive Cloud Quiz Mode (`acronomicon quiz`)
 
 Test your architecture street cred—or quiz your teammates before certification exams:
 
@@ -160,12 +186,12 @@ Test your architecture street cred—or quiz your teammates before certification
     ↳ A unified security platform combining CSPM, CWPP, CIEM, and IaC scanning...
 ```
 
-### 5. Database Telemetry & A–Z Distribution (`acronomicon stats`)
+### 6. Database Telemetry & A–Z Distribution (`acronomicon stats`)
 
 ```text
 📊 THE ACRONOMICON DATABASE STATISTICS
 ════════════════════════════════════════════════════════════════════════
-  Total Cloud Acronyms: 806
+  Total Cloud Acronyms: 857
 
 🗂️  ACRONOMICON CATEGORIES
 ──────────────────────────────────────────────────────────────────
@@ -175,24 +201,26 @@ Test your architecture street cred—or quiz your teammates before certification
    4. Storage & Databases             99 acronyms   ████████████████████████████
    5. Compute                         92 acronyms   ██████████████████████████
    6. Corporate & Manager Speak       72 acronyms   ████████████████████
-   7. DevOps & IaC                    42 acronyms   ████████████
-   8. Architecture & Cloud Models     33 acronyms   █████████
-   9. Observability & SRE             33 acronyms   █████████
-  10. Compliance & Governance         26 acronyms   ███████
-  11. Serverless & Messaging          26 acronyms   ███████
+   7. IT Folklore & Nerdisms          51 acronyms   ██████████████
+   8. DevOps & IaC                    42 acronyms   ████████████
+   9. Architecture & Cloud Models     33 acronyms   █████████
+  10. Observability & SRE             33 acronyms   █████████
+  11. Compliance & Governance         26 acronyms   ███████
+  12. Serverless & Messaging          26 acronyms   ███████
 ──────────────────────────────────────────────────────────────────
 ☁️  BY CLOUD PROVIDER / ECOSYSTEM
 ──────────────────────────────────────────────────────────────────
-  [Cloud-Agnostic]      300 ( 37.2%)  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-  [AWS]                 130 ( 16.1%)  ▓▓▓▓▓▓
-  [CNCF]                108 ( 13.4%)  ▓▓▓▓▓
-  [👔 Corporate]          72 (  8.9%)  ▓▓▓
-  [Azure]                58 (  7.2%)  ▓▓
-  [GCP]                  52 (  6.5%)  ▓▓
-  [VMware]               32 (  4.0%)  ▓
-  [Red Hat]              24 (  3.0%)  ▓
-  [Linux]                14 (  1.7%)  ▓
-  [SUSE]                 12 (  1.5%)  ▓
+  [Cloud-Agnostic]      300 ( 35.0%)  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+  [AWS]                 130 ( 15.2%)  ▓▓▓▓▓▓
+  [CNCF]                108 ( 12.6%)  ▓▓▓▓▓
+  [👔 Corporate]          72 (  8.4%)  ▓▓▓
+  [Azure]                58 (  6.8%)  ▓▓
+  [GCP]                  52 (  6.1%)  ▓▓
+  [👾 Nerdism]            51 (  6.0%)  ▓▓
+  [VMware]               32 (  3.7%)  ▓
+  [Red Hat]              24 (  2.8%)  ▓
+  [Linux]                14 (  1.6%)  ▓
+  [SUSE]                 12 (  1.4%)  ▓
   [Docker]                4 (  0.5%)  ▓
 ```
 
@@ -278,9 +306,9 @@ acronomicon quiz
 
 ---
 
-## 📚 The Eleven Sacred Tomes (Categories)
+## 📚 The Twelve Sacred Tomes (Categories)
 
-The Acronomicon organizes **800+ acronyms** across **11 core disciplines** and **11 ecosystem tags** (`AWS`, `Azure`, `GCP`, `CNCF`, `VMware`, `Red Hat`, `SUSE`, `Linux`, `Docker`, `👔 Corporate`, `Cloud-Agnostic`):
+The Acronomicon organizes **857+ acronyms** across **12 core disciplines** and **11 ecosystem tags** (`AWS`, `Azure`, `GCP`, `CNCF`, `VMware`, `Red Hat`, `SUSE`, `Linux`, `Docker`, `👔 Corporate`, `👾 Nerdism`, `Cloud-Agnostic`):
 
 | Tome (Category) | Count | Sample Acronyms Inside |
 | :--- | :---: | :--- |
@@ -290,6 +318,7 @@ The Acronomicon organizes **800+ acronyms** across **11 core disciplines** and *
 | 💾 **Storage & Databases** | **99** | `S3`, `EBS`, `EFS`, `FSxN`, `FSxL`, `RDS`, `AURORA`, `DYNAMODB`, `DAX`, `REDSHIFT`, `DOCUMENTDB`, `ADLS`, `ANF`, `COSMOS-DB`, `SYNAPSE`, `FABRIC`, `SQL-MI`, `BIGTABLE`, `SPANNER`, `ALLOYDB`, `FIRESTORE`, `HYPERDISK`, `VSAN`, `VMFS`, `VVOLS`, `LONGHORN`, `ROOK-CEPH`, `BTRFS`, `SNAPPER`, `DRBD`, `NVMe`, `IOPS`, `RAFT`, `PAXOS`, `ACID` |
 | ⚡ **Compute** | **92** | `EC2`, `GCE`, `AL2023`, `BOTTLEROCKET`, `GRAVITON`, `INFERENTIA`, `TRAINIUM`, `AVD`, `ASH`, `AZURE-ARC`, `ANTHOS`, `COS-GCP`, `DATAPROC`, `ESXi`, `VSPHERE`, `VCENTER`, `VMKERNEL`, `VMOTION`, `DRS-VMW`, `VCF`, `HCX`, `PROXMOX`, `XCP-NG`, `NUTANIX-AHV`, `HARVESTER`, `KUBEVIRT`, `RHEL`, `SLES`, `SLE-MICRO`, `IO-URING`, `EEVDF`, `VT-X`, `AMD-V`, `GPU`, `TPU` |
 | 👔 **Corporate & Manager Speak** | **72** | `PIP`, `RIF`, `RTO-OFFICE`, `WFH`, `OOO`, `PTO`, `1ON1`, `ALL-HANDS`, `TC`, `RSU`, `ESPP`, `MVP`, `POC`, `GA-CORP`, `EOL-CORP`, `SLA-SALES`, `ARR`, `MRR`, `CAC`, `LTV`, `EBITDA`, `BURN-RATE`, `RUNWAY`, `HERO-CULTURE`, `KUDOS`, `BURNOUT`, `TECH-DEBT`, `REFACTOR`, `SCOPE-CREEP`, `STANDUP`, `RETRO`, `BACKLOG`, `BANDWIDTH`, `CIRCLE-BACK`, `TABLE-THIS`, `YAK-SHAVING`, `BIKE-SHEDDING` |
+| 👾 **IT Folklore & Nerdisms** | **51** | `PEBKAC`, `ID10T`, `BOFH`, `PICNIC`, `LAYER-8`, `RTFM`, `1337`, `PWN`, `BSOD`, `KERNEL-PANIC`, `HEISENBUG`, `BOHRBUG`, `MANDELBUG`, `SCHROEDINBUG`, `BUS-FACTOR`, `CARGO-CULT`, `CODE-SMELL`, `RUBBER-DUCK`, `MAGIC-NUMBER`, `SNEAKERNET`, `PERCUSSIVE-MAINT`, `FORK-BOMB`, `FUBAR`, `SNAFU`, `GIGO`, `GURU-MEDITATION`, `LART`, `LUSER`, `PHREAKING`, `TURTLES` |
 | 🔄 **DevOps & IaC** | **42** | `CI/CD`, `IaC`, `GitOps`, `TF`, `TOFU`, `CDK`, `CFN`, `BICEP`, `ARM-AZURE`, `ADO`, `AZ-PIPELINES`, `CLOUD-BUILD`, `CLOUD-DEPLOY`, `COMPOSER`, `TEKTON`, `AAP`, `AWX`, `SATELLITE`, `KICKSTART`, `YAST`, `ZYPPER`, `DNF`, `RPM`, `SBOM`, `SLSA`, `DORA`, `CANARY` |
 | 🏛️ **Architecture & Cloud Models** | **33** | `IaaS`, `PaaS`, `SaaS`, `FaaS`, `CaaS`, `DBaaS`, `XaaS`, `MSA`, `SOA`, `EDA`, `CQRS`, `SAGA`, `BFF`, `HA`, `DR`, `RTO`, `RPO`, `SPOF`, `MULTI-AZ`, `WAR-AWS`, `SRM-VMW`, `RG-AZURE` |
 | 📈 **Observability & SRE** | **33** | `SRE`, `SLA`, `SLO`, `SLI`, `OTel`, `ADOT`, `AMP`, `AMG`, `CLOUDWATCH`, `X-RAY`, `OPENSEARCH`, `AZ-MONITOR`, `APP-INSIGHTS`, `ADX`, `KQL`, `LA`, `MQL`, `APM`, `RUM`, `LGTM`, `PROM`, `ELK`, `BPFTRACE`, `JOURNALD`, `SAR`, `MTBF`, `MTTR` |
@@ -313,6 +342,8 @@ The Acronomicon organizes **800+ acronyms** across **11 core disciplines** and *
 | `acronomicon random` | `-r`, `rand`, `verse` | Summon a random *Acronomicon Verse of the Day* |
 | `acronomicon quiz` | `-q`, `--quiz` | Start an interactive 5-question multiple-choice quiz |
 | `acronomicon stats` | `stat`, `--stats` | Render database breakdown charts by category, provider & A–Z |
+| `acronomicon update` | `-u`, `--update` | Self-update from git origin or latest binary release |
+| `acronomicon version` | `-v`, `--version` | Display the installed Acronomicon version |
 | `acronomicon help` | `-h`, `--help`, `/?` | Show CLI usage and interactive command guide |
 | `--no-color` | `NO_COLOR=1` | Strip ANSI escape codes for plain-text piping or logs |
 
@@ -325,7 +356,7 @@ flowchart LR
     User(["👩‍💻 Engineer\n(Terminal / CMD / PowerShell)"]) --> CLI["main.go\nCLI & REPL Dispatcher"]
     CLI --> TermInit["term_windows.go / term_other.go\nUTF-8 (CP65001) + ANSI VT100"]
     CLI --> Engine["internal/data\nLookup • Alias • Levenshtein • Search"]
-    Engine --> DB[("800+ Curated Entries\nAWS • Azure • GCP • K8s • VMware • Linux • Corporate")]
+    Engine --> DB[("857+ Curated Entries\nAWS • Azure • GCP • K8s • VMware • Linux • Corporate • Nerdisms")]
     CLI --> UI["internal/ui\nANSI Card Renderer • Charts • Quiz"]
 ```
 
@@ -338,7 +369,7 @@ flowchart LR
 ## 🛠️ Building & Packaging from Source
 
 ```bash
-# Run the test suite (verifies 800+ entries, zero duplicates, A-Z coverage, search & fuzzy matching)
+# Run the test suite (verifies 857+ entries, zero duplicates, A-Z coverage, search & fuzzy matching)
 make test
 
 # Build local binary
