@@ -2,14 +2,21 @@ package main
 
 import (
 	"bufio"
+	"context"
 	"fmt"
+	"net/http"
 	"os"
 	"strings"
+	"sync/atomic"
+	"time"
 	"unicode"
 
 	"github.com/espresso20/acronomicon/internal/data"
 	"github.com/espresso20/acronomicon/internal/ui"
+	"github.com/espresso20/acronomicon/internal/updater"
 )
+
+var version = "dev" // set via -ldflags "-X main.version=..."
 
 func main() {
 	initTerminal()
@@ -73,6 +80,12 @@ func main() {
 
 	case "stats", "stat", "--stats":
 		ui.PrintStats()
+
+	case "update", "-u", "--update", "upgrade":
+		os.Exit(runUpdate())
+
+	case "version", "-v", "--version":
+		fmt.Println("acronomicon " + version)
 
 	default:
 		// If single letter A-Z, show letter list OR exact acronym if desired;
@@ -158,6 +171,21 @@ func handleCategory(catQuery string) {
 	ui.PrintTable("Category: "+matchedName, entries)
 }
 
+func runUpdate() int {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+	defer cancel()
+
+	u := updater.New(version)
+	fmt.Println(ui.C(ui.FgBrightCyan+ui.Bold, "⟳ Checking for updates..."))
+
+	err := u.Update(ctx)
+	if err != nil {
+		fmt.Println(ui.C(ui.FgBrightRed, "✗ Update failed: "+err.Error()))
+		return 1
+	}
+	return 0
+}
+
 func runREPL() {
 	total := len(data.All())
 	ui.PrintBanner(total)
@@ -180,8 +208,25 @@ func runREPL() {
 		ui.C(ui.FgBrightRed, "q"),
 	)
 
+	var updateReady atomic.Bool
+	if os.Getenv("ACRONOMICON_NO_UPDATE_CHECK") == "" {
+		go func() {
+			ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+			defer cancel()
+			u := updater.New(version)
+			u.Client = &http.Client{Timeout: 5 * time.Second}
+			if st, err := u.CheckCached(ctx, 24*time.Hour); err == nil && st.Available {
+				updateReady.Store(true)
+			}
+		}()
+	}
+
 	reader := bufio.NewReader(os.Stdin)
 	for {
+		if updateReady.CompareAndSwap(true, false) {
+			fmt.Printf("\n  %s\n", ui.C(ui.Dim, "↑ A new version of The Acronomicon is available — type /update to install."))
+		}
+
 		fmt.Printf("\n%s ", ui.C(ui.FgBrightCyan+ui.Bold, "acronomicon>"))
 		line, err := reader.ReadString('\n')
 		if err != nil {
@@ -218,6 +263,9 @@ func runREPL() {
 
 		case lower == "/cat" || lower == "/categories" || lower == "categories":
 			ui.PrintCategories()
+
+		case lower == "/update" || lower == "update":
+			runUpdate()
 
 		case strings.HasPrefix(lower, "/cat ") || strings.HasPrefix(lower, "/category "):
 			parts := strings.SplitN(input, " ", 2)

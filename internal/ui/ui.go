@@ -499,6 +499,8 @@ func PrintHelp() {
 	fmt.Printf("  %-34s %s\n", C(FgBrightCyan, "acronomicon random"), "Display a random cloud acronym card (-r)")
 	fmt.Printf("  %-34s %s\n", C(FgBrightCyan, "acronomicon quiz"), "Take a 5-question cloud acronym quiz")
 	fmt.Printf("  %-34s %s\n", C(FgBrightCyan, "acronomicon stats"), "Show database statistics & A–Z breakdown")
+	fmt.Printf("  %-34s %s\n", C(FgBrightCyan, "acronomicon update"), "Update to the latest version (-u)")
+	fmt.Printf("  %-34s %s\n", C(FgBrightCyan, "acronomicon version"), "Print the installed version (-v)")
 	fmt.Printf("  %-34s %s\n", C(FgBrightCyan, "acronomicon --no-color ..."), "Disable ANSI colors (also respects NO_COLOR=1)")
 	fmt.Println()
 	fmt.Println(C(Bold+FgBrightWhite, "Interactive Prompt Commands (acronomicon>):"))
@@ -510,6 +512,7 @@ func PrintHelp() {
 	fmt.Printf("  %-34s %s\n", C(FgBrightGreen, "/random  or  /r"), "Show a random 'Acronomicon Verse of the Day'")
 	fmt.Printf("  %-34s %s\n", C(FgBrightGreen, "/quiz"), "Launch a quick 5-question multiple-choice quiz")
 	fmt.Printf("  %-34s %s\n", C(FgBrightGreen, "/stats"), "View database stats and charts")
+	fmt.Printf("  %-34s %s\n", C(FgBrightGreen, "/update"), "Check for and install the latest version")
 	fmt.Printf("  %-34s %s\n", C(FgBrightGreen, "/help  or  quit / q"), "Show help or exit The Acronomicon")
 	fmt.Println(C(FgBrightCyan, strings.Repeat("─", 74)))
 }
