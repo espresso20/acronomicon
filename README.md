@@ -90,7 +90,8 @@ Modern cloud engineering is **90% YAML indentation** and **10% nodding confident
 
 ```text
 ╭──────────────────────────────────────────────────────────────────────────────╮
-│  [ PIP ] (aka PERFORMANCE IMPROVEMENT PLAN)   [👔 Corporate]  [Corporate & Manager Speak]  │
+│  [ PIP ]                        [👔 Corporate]  [Corporate & Manager Speak]  │
+│  (aka PERFORMANCE IMPROVEMENT PLAN)                                          │
 │  ✦ Performance Improvement Plan                                              │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │  MEANING (TL;DR)                                                             │

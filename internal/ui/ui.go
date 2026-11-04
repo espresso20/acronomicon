@@ -117,7 +117,28 @@ func categoryColor(cat string) string {
 	}
 }
 
-// visibleLen calculates the printable rune width of a string, ignoring ANSI escape sequences.
+// runeWidth returns the visual column width of a rune in monospace terminal emulators (0, 1, or 2).
+func runeWidth(r rune) int {
+	// Variation selectors, zero-width joiners, and combining characters have 0 width
+	if (r >= 0xFE00 && r <= 0xFE0F) || r == 0x200D {
+		return 0
+	}
+	// Control characters
+	if r < 0x20 || (r >= 0x7F && r < 0xA0) {
+		return 0
+	}
+	// Common Emoji and East Asian Wide character ranges (width 2)
+	if (r >= 0x1F300 && r <= 0x1FAFF) ||
+		(r >= 0x4E00 && r <= 0x9FFF) ||
+		(r >= 0x3000 && r <= 0x303F) ||
+		(r >= 0xFF01 && r <= 0xFF60) ||
+		(r >= 0x20000 && r <= 0x2FFFF) {
+		return 2
+	}
+	return 1
+}
+
+// visibleLen calculates the printable terminal column width of a string, ignoring ANSI escape sequences.
 func visibleLen(s string) int {
 	inEsc := false
 	count := 0
@@ -132,12 +153,55 @@ func visibleLen(s string) int {
 			}
 			continue
 		}
-		count++
+		count += runeWidth(r)
 	}
 	return count
 }
 
-// padRight pads a string (which may contain ANSI codes) with spaces to reach width visible runes.
+// truncateVisible truncates a string that may contain ANSI escape codes to at most maxCol visual columns,
+// appending an ellipsis "…" if truncated, and resetting ANSI styling at the end.
+func truncateVisible(s string, maxCol int) string {
+	if visibleLen(s) <= maxCol {
+		return s
+	}
+	target := maxCol - 1
+	if target < 1 {
+		target = 1
+	}
+	var b strings.Builder
+	inEsc := false
+	curCol := 0
+	hasEsc := false
+
+	for _, r := range s {
+		if r == '\033' {
+			inEsc = true
+			hasEsc = true
+			b.WriteRune(r)
+			continue
+		}
+		if inEsc {
+			b.WriteRune(r)
+			if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') {
+				inEsc = false
+			}
+			continue
+		}
+		w := runeWidth(r)
+		if curCol+w > target {
+			break
+		}
+		b.WriteRune(r)
+		curCol += w
+	}
+	b.WriteString("…")
+	if hasEsc && !ColorDisabled {
+		b.WriteString(Reset)
+	}
+	return b.String()
+}
+
+// padRight pads a string (which may contain ANSI codes) with spaces to reach width visible columns.
 func padRight(s string, width int) string {
 	vLen := visibleLen(s)
 	if vLen >= width {
@@ -192,8 +256,9 @@ func PrintBanner(totalCount int) {
 	fmt.Println(bottom)
 }
 
-// PrintCard renders a full-color detailed card for an acronym Entry.
-func PrintCard(e data.Entry) {
+// RenderCard formats a full-color detailed card for an acronym Entry into a string.
+// Every line is guaranteed to be exactly 80 terminal columns wide so box borders never break.
+func RenderCard(e data.Entry) string {
 	const boxWidth = 78 // inner width between │ and │
 	const textWidth = 74
 
@@ -202,25 +267,70 @@ func PrintCard(e data.Entry) {
 	botBorder := C(FgBrightCyan, "╰"+strings.Repeat("─", boxWidth)+"╯")
 	vBar := C(FgBrightCyan, "│")
 
-	printRow := func(content string) {
-		fmt.Printf("%s  %s  %s\n", vBar, padRight(content, textWidth), vBar)
+	var b strings.Builder
+	b.WriteString("\n")
+	b.WriteString(topBorder + "\n")
+
+	appendRow := func(content string) {
+		vLen := visibleLen(content)
+		if vLen > textWidth {
+			content = truncateVisible(content, textWidth)
+			vLen = visibleLen(content)
+		}
+		pad := textWidth - vLen
+		if pad < 0 {
+			pad = 0
+		}
+		b.WriteString(fmt.Sprintf("%s  %s%s  %s\n", vBar, content, strings.Repeat(" ", pad), vBar))
 	}
 
-	fmt.Println()
-	fmt.Println(topBorder)
-
-	// Header row: Acronym badge + Provider badge + Category tag
+	// Header components
 	acrBadge := Badge(BgCyan, FgBlack, " "+e.Acronym+" ")
 	prov := providerBadge(e.Provider)
 	catTag := C(categoryColor(e.Category)+Bold, "["+e.Category+"]")
+	rightMeta := prov + "  " + catTag
+
+	acrLen := visibleLen(acrBadge)
+	metaLen := visibleLen(rightMeta)
 
 	aliasStr := ""
 	if len(e.Aliases) > 0 {
-		aliasStr = C(Dim+FgWhite, " (aka "+strings.Join(e.Aliases, ", ")+")")
+		aliasStr = "(aka " + strings.Join(e.Aliases, ", ") + ")"
 	}
 
-	headerLine := fmt.Sprintf("%s%s   %s  %s", acrBadge, aliasStr, prov, catTag)
-	printRow(headerLine)
+	// Determine if aliases fit on line 1 between acronym badge and right meta tags
+	aliasFitsOnLine1 := false
+	if aliasStr != "" {
+		aliasLen := visibleLen(aliasStr)
+		// Need at least 1 space between badge & alias, and 2 spaces between alias & rightMeta
+		if acrLen+1+aliasLen+2+metaLen <= textWidth {
+			aliasFitsOnLine1 = true
+		}
+	}
+
+	if aliasFitsOnLine1 {
+		left := acrBadge + " " + C(Dim+FgWhite, aliasStr)
+		leftLen := visibleLen(left)
+		spaces := textWidth - leftLen - metaLen
+		if spaces < 1 {
+			spaces = 1
+		}
+		appendRow(left + strings.Repeat(" ", spaces) + rightMeta)
+	} else {
+		// Put acronym badge on left and metadata on right
+		spaces := textWidth - acrLen - metaLen
+		if spaces < 1 {
+			spaces = 1
+		}
+		appendRow(acrBadge + strings.Repeat(" ", spaces) + rightMeta)
+
+		// Print aliases on dedicated line(s)
+		if aliasStr != "" {
+			for _, l := range wrapText(aliasStr, textWidth) {
+				appendRow(C(Dim+FgWhite, l))
+			}
+		}
+	}
 
 	// Full Name row
 	fullLines := wrapText(e.FullName, textWidth-2)
@@ -229,43 +339,71 @@ func PrintCard(e data.Entry) {
 		if i > 0 {
 			prefix = "  "
 		}
-		printRow(C(FgBrightYellow+Bold, prefix+l))
+		appendRow(C(FgBrightYellow+Bold, prefix+l))
 	}
 
-	fmt.Println(midBorder)
+	b.WriteString(midBorder + "\n")
 
 	// Meaning section
-	printRow(C(FgBrightGreen+Bold+Underline, "MEANING (TL;DR)"))
+	appendRow(C(FgBrightGreen+Bold+Underline, "MEANING (TL;DR)"))
 	for _, l := range wrapText(e.Meaning, textWidth) {
-		printRow(C(FgBrightWhite, l))
+		appendRow(C(FgBrightWhite, l))
 	}
-	printRow("")
+	appendRow("")
 
 	// What It Does section
-	printRow(C(FgBrightCyan+Bold+Underline, "WHAT IT DOES & WHY IT MATTERS"))
+	appendRow(C(FgBrightCyan+Bold+Underline, "WHAT IT DOES & WHY IT MATTERS"))
 	for _, l := range wrapText(e.WhatItDoes, textWidth) {
-		printRow(C(FgWhite, l))
+		appendRow(C(FgWhite, l))
 	}
-	printRow("")
+	appendRow("")
 
 	// Practical Example section
-	printRow(C(FgBrightMagenta+Bold+Underline, "IN PRACTICE / REAL-WORLD EXAMPLE"))
+	appendRow(C(FgBrightMagenta+Bold+Underline, "IN PRACTICE / REAL-WORLD EXAMPLE"))
 	for _, l := range wrapText(e.Example, textWidth-2) {
-		printRow(C(FgBrightYellow, "▸ ") + C(Italic+FgWhite, l))
+		appendRow(C(FgBrightYellow, "▸ ") + C(Italic+FgWhite, l))
 	}
 
 	// Related section
 	if len(e.Related) > 0 {
-		fmt.Println(midBorder)
-		var relPills []string
+		b.WriteString(midBorder + "\n")
+		prefix := C(Dim+FgWhite, "See Also: ")
+		prefixLen := visibleLen(prefix)
+		curLine := prefix
+		curLen := prefixLen
+		first := true
+
 		for _, r := range e.Related {
-			relPills = append(relPills, C(FgBrightCyan+Bold, r))
+			pill := C(FgBrightCyan+Bold, r)
+			pillLen := visibleLen(pill)
+			sep := C(Dim, " • ")
+			sepLen := 3
+
+			if first {
+				curLine += pill
+				curLen += pillLen
+				first = false
+			} else if curLen+sepLen+pillLen <= textWidth {
+				curLine += sep + pill
+				curLen += sepLen + pillLen
+			} else {
+				appendRow(curLine)
+				curLine = strings.Repeat(" ", prefixLen) + pill
+				curLen = prefixLen + pillLen
+			}
 		}
-		relLine := C(Dim+FgWhite, "See Also: ") + strings.Join(relPills, C(Dim, " • "))
-		printRow(relLine)
+		if curLen > 0 {
+			appendRow(curLine)
+		}
 	}
 
-	fmt.Println(botBorder)
+	b.WriteString(botBorder + "\n")
+	return b.String()
+}
+
+// PrintCard renders a full-color detailed card for an acronym Entry to stdout.
+func PrintCard(e data.Entry) {
+	fmt.Print(RenderCard(e))
 }
 
 // PrintTable renders a compact colored list of entries (for search, letter list, or category list).
