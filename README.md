@@ -235,9 +235,9 @@ Choose whichever path fits your workflow:
 
 | Method | How to Install |
 | :--- | :--- |
-| **Native `.pkg` GUI Installer** | Double-click **`dist/acronomicon-macos-universal.pkg`**. Installs `/usr/local/bin/acronomicon` (plus `/opt/homebrew/bin/acronomicon` symlink) and `/Applications/Acronomicon.app`. |
-| **macOS `.app` Bundle** | Drag **`dist/Acronomicon.app`** to `/Applications` and launch via **Spotlight (`⌘ + Space` → `Acronomicon`)**. Automatically opens `Terminal.app` into the interactive REPL. |
-| **No-Sudo User Installer** | Double-click **`Install Acronomicon.command`** inside the macOS `.zip` package to install to `~/.local/bin` and `~/Applications`. |
+| **Native `.pkg` GUI Installer** | Download **`acronomicon-macos-universal.pkg`** from the [Releases page](https://github.com/espresso20/acronomicon/releases/latest) and double-click it. Installs `/usr/local/bin/acronomicon` (plus `/opt/homebrew/bin/acronomicon` symlink) and `/Applications/Acronomicon.app`. |
+| **macOS `.app` Bundle** | Download **`acronomicon-macos-universal-package.zip`** from the [Releases page](https://github.com/espresso20/acronomicon/releases/latest) (it contains **`Acronomicon.app`**), then drag the app to `/Applications` and launch via **Spotlight (`⌘ + Space` → `Acronomicon`)**. Automatically opens `Terminal.app` into the interactive REPL. |
+| **No-Sudo User Installer** | Double-click **`Install Acronomicon.command`** inside **`acronomicon-macos-universal-package.zip`** from the [Releases page](https://github.com/espresso20/acronomicon/releases/latest) to install to `~/.local/bin` and `~/Applications`. |
 
 ### 🪟 Windows (Windows 10 / 11 • `x64` & `ARM64`)
 
@@ -245,9 +245,13 @@ Built with native Windows `kernel32.dll` **Virtual Terminal Processing (`ENABLE_
 
 | Method | How to Install |
 | :--- | :--- |
-| **One-Click Setup Wizard (`*-setup.exe`)** | Run **`dist/acronomicon-windows-amd64-setup.exe`** (or `arm64`). Installs to `%LOCALAPPDATA%\Programs\Acronomicon` (no Admin/UAC required), adds `acronomicon` to your Windows User `PATH`, creates **Start Menu** & **Desktop** shortcuts, and registers an uninstaller in **Windows Installed Apps**. |
+| **One-Click Setup Wizard (`*-setup.exe`)** | Download **`acronomicon-windows-amd64-setup.exe`** (or `arm64`) from the [Releases page](https://github.com/espresso20/acronomicon/releases/latest) and run it. Installs to `%LOCALAPPDATA%\Programs\Acronomicon` (no Admin/UAC required), adds `acronomicon` to your Windows User `PATH`, creates **Start Menu** & **Desktop** shortcuts, and registers an uninstaller in **Windows Installed Apps**. |
 | **Silent / Unattended Install** | `acronomicon-windows-amd64-setup.exe --silent` (and `--uninstall` to remove cleanly). |
-| **Portable `.exe`** | Run **`dist/acronomicon-windows-amd64.exe`** directly from anywhere—zero installation required. |
+| **Portable `.exe`** | Download **`acronomicon-windows-amd64.exe`** from the [Releases page](https://github.com/espresso20/acronomicon/releases/latest) and run it directly from anywhere—zero installation required. |
+
+### 🛠️ Build from Source
+
+`make dist` builds every release artifact into `dist/` (binaries, `Acronomicon.app`, the macOS `.pkg`, and the per-platform `-package.zip` files). Requires macOS with Xcode command line tools.
 
 ### 🐹 Go Developers (Any OS: macOS, Linux, Windows, BSD)
 
