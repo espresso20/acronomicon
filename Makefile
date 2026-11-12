@@ -2,6 +2,8 @@
 
 VERSION ?= $(shell git describe --tags --exact-match 2>/dev/null || echo dev)
 LDFLAGS := -s -w -X main.version=$(VERSION)
+# Windows binaries stay unstripped and trimpath'd so Defender heuristics see normal Go PE files.
+WIN_LDFLAGS := -X main.version=$(VERSION)
 PKGVER := $(if $(filter dev,$(VERSION)),0.0.0,$(patsubst v%,%,$(VERSION)))
 STAGE := dist/stage
 # Substitutes the packaging placeholder version (1.0.0) in a staged copy.
@@ -19,12 +21,12 @@ dist: windows macos package
 
 windows:
 	mkdir -p dist cmd/windows-installer/payload
-	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -ldflags="$(LDFLAGS)" -o dist/acronomicon-windows-amd64.exe .
-	CGO_ENABLED=0 GOOS=windows GOARCH=arm64 go build -ldflags="$(LDFLAGS)" -o dist/acronomicon-windows-arm64.exe .
+	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -ldflags="$(WIN_LDFLAGS)" -o dist/acronomicon-windows-amd64.exe .
+	CGO_ENABLED=0 GOOS=windows GOARCH=arm64 go build -trimpath -ldflags="$(WIN_LDFLAGS)" -o dist/acronomicon-windows-arm64.exe .
 	cp dist/acronomicon-windows-amd64.exe cmd/windows-installer/payload/
 	cp dist/acronomicon-windows-arm64.exe cmd/windows-installer/payload/
-	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o dist/acronomicon-windows-amd64-setup.exe ./cmd/windows-installer
-	CGO_ENABLED=0 GOOS=windows GOARCH=arm64 go build -ldflags="-s -w" -o dist/acronomicon-windows-arm64-setup.exe ./cmd/windows-installer
+	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -o dist/acronomicon-windows-amd64-setup.exe ./cmd/windows-installer
+	CGO_ENABLED=0 GOOS=windows GOARCH=arm64 go build -trimpath -o dist/acronomicon-windows-arm64-setup.exe ./cmd/windows-installer
 
 macos:
 	mkdir -p dist
