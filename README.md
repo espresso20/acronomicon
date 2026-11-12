@@ -245,13 +245,16 @@ Built with native Windows `kernel32.dll` **Virtual Terminal Processing (`ENABLE_
 
 | Method | How to Install |
 | :--- | :--- |
-| **One-Click Setup Wizard (`*-setup.exe`)** | Download **`acronomicon-windows-amd64-setup.exe`** (or `arm64`) from the [Releases page](https://github.com/espresso20/acronomicon/releases/latest) and run it. Installs to `%LOCALAPPDATA%\Programs\Acronomicon` (no Admin/UAC required), adds `acronomicon` to your Windows User `PATH`, creates **Start Menu** & **Desktop** shortcuts, and registers an uninstaller in **Windows Installed Apps**. |
+| **Scoop (recommended)** | Run `scoop bucket add acronomicon https://github.com/espresso20/acronomicon`, then `scoop install acronomicon`. Update later with `scoop update acronomicon`. |
+| **Portable `.exe` via PowerShell** | `curl.exe -L -o acronomicon.exe https://github.com/espresso20/acronomicon/releases/latest/download/acronomicon-windows-amd64.exe` (arm64 users swap the arch), then run `.\acronomicon.exe`. |
+| **One-Click Setup Wizard (`*-setup.exe`)** | Download **`acronomicon-windows-amd64-setup.exe`** (or `arm64`) from the [Releases page](https://github.com/espresso20/acronomicon/releases/latest) and run it. Installs to `%LOCALAPPDATA%\Programs\Acronomicon` (no Admin/UAC required), adds `acronomicon` to your Windows User `PATH`, creates **Start Menu** & **Desktop** shortcuts, and registers an uninstaller in **Windows Installed Apps**. The wizard is unsigned, so Windows Defender or SmartScreen may block or flag it when downloaded through a browser; use Scoop or the portable exe if that happens. |
 | **Silent / Unattended Install** | `acronomicon-windows-amd64-setup.exe --silent` (and `--uninstall` to remove cleanly). |
-| **Portable `.exe`** | Download **`acronomicon-windows-amd64.exe`** from the [Releases page](https://github.com/espresso20/acronomicon/releases/latest) and run it directly from anywhere—zero installation required. |
 
 ### 🛠️ Build from Source
 
 `make dist` builds every release artifact into `dist/` (binaries, `Acronomicon.app`, the macOS `.pkg`, and the per-platform `-package.zip` files). Requires macOS with Xcode command line tools.
+
+`make scoop-manifest` regenerates `bucket/acronomicon.json` after a release build.
 
 ### 🐹 Go Developers (Any OS: macOS, Linux, Windows, BSD)
 
