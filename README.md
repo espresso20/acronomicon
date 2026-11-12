@@ -8,7 +8,7 @@
 ║ /    |    \  \___ |  | \(  <_> )   |  (  <_> )  Y Y  \  \  \__(  <_> )   |  \ ║
 ║ \____|__  /\___  >|__|   \____/|___|  /\____/|__|_|  /__|\___  >____/|___|  / ║
 ║         \/     \/                   \/             \/        \/           \/  ║
-║         ✦  THE BIBLE OF CLOUD TECH ACRONYMS • 857+ Entries (A–Z)  ✦           ║
+║         ✦  THE BIBLE OF CLOUD TECH ACRONYMS • 917+ Entries (A–Z)  ✦           ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 ```
 
@@ -18,7 +18,7 @@
 
 [![Go Version](https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero_(Pure_Stdlib)-success?style=for-the-badge&logo=checkmarx&logoColor=white)](#️-under-the-hood)
-[![Acronyms](https://img.shields.io/badge/Acronyms-857%2B_(A--Z)-f59e0b?style=for-the-badge&logo=bookstack&logoColor=white)](#-the-twelve-sacred-tomes-categories)
+[![Acronyms](https://img.shields.io/badge/Acronyms-917%2B_(A--Z)-f59e0b?style=for-the-badge&logo=bookstack&logoColor=white)](#-the-twelve-sacred-tomes-categories)
 [![Platforms](https://img.shields.io/badge/Platform-macOS_%7C_Windows_%7C_Linux-8b5cf6?style=for-the-badge&logo=windowsterminal&logoColor=white)](#-installation)
 
 <p align="center">
@@ -45,7 +45,7 @@ Modern cloud engineering is **90% YAML indentation** and **10% nodding confident
 
 > *"We need to verify our **CSPM** and **CWPP** posture inside the **CNAPP** before we cut over the **Multi-AZ** **EKS** **ALBs** from **SNAT** to **IPv6** **CIDR** blocks with **mTLS** via **eBPF** and **IRSA** to hit our **SOC 2** **RTO**/**RPO** **SLOs**—so let's **circle back** after the **standup** before our **1:1** to avoid a **PIP** unless this is pure **PEBKAC**."*
 
-**The Acronomicon** is a blazing-fast, zero-dependency, full-color CLI and interactive REPL written in pure Go that lives right in your terminal. Covering **857+ acronyms** across **AWS, Azure, GCP, Kubernetes, Docker, VMware, Linux, Red Hat, SUSE, Enterprise Networking**, **Corporate & Manager Speak**, and **IT Folklore & Nerdisms**, each entry delivers:
+**The Acronomicon** is a blazing-fast, zero-dependency, full-color CLI and interactive REPL written in pure Go that lives right in your terminal. Covering **917+ acronyms** across **AWS, Azure, GCP, Kubernetes, Docker, VMware, Linux, Red Hat, SUSE, Enterprise Networking**, **Corporate & Manager Speak**, and **IT Folklore & Nerdisms**, each entry delivers:
 
 1. 🏷️ **What It Stands For** (plus aliases like `K8s` ↔ `KUBERNETES`, `ENTRA-ID` ↔ `AAD`, `1ON1` ↔ `1:1`, `PEBKAC` ↔ `PEBMAC`)
 2. ☁️ **Provider & Category Badges** (`Cloud-Agnostic`, `AWS`, `Azure`, `GCP`, `CNCF`, `VMware`, `Red Hat`, `SUSE`, `Linux`, `👔 Corporate`, `👾 Nerdism`)
@@ -192,22 +192,23 @@ Test your architecture street cred—or quiz your teammates before certification
 ```text
 📊 THE ACRONOMICON DATABASE STATISTICS
 ════════════════════════════════════════════════════════════════════════
-  Total Cloud Acronyms: 857
+  Total Cloud Acronyms: 917
 
 🗂️  ACRONOMICON CATEGORIES
 ──────────────────────────────────────────────────────────────────
-   1. Security & Identity            141 acronyms   ████████████████████████████████████████
-   2. Containers & K8s               123 acronyms   ███████████████████████████████████
-   3. Networking                     119 acronyms   ██████████████████████████████████
-   4. Storage & Databases             99 acronyms   ████████████████████████████
-   5. Compute                         92 acronyms   ██████████████████████████
+   1. Security & Identity            142 acronyms   ████████████████████████████████████████
+   2. Networking                     126 acronyms   ███████████████████████████████████
+   3. Containers & K8s               123 acronyms   ███████████████████████████████████
+   4. Storage & Databases            101 acronyms   ████████████████████████████
+   5. Compute                        101 acronyms   ████████████████████████████
    6. Corporate & Manager Speak       72 acronyms   ████████████████████
    7. IT Folklore & Nerdisms          51 acronyms   ██████████████
    8. DevOps & IaC                    42 acronyms   ████████████
-   9. Architecture & Cloud Models     33 acronyms   █████████
-  10. Observability & SRE             33 acronyms   █████████
-  11. Compliance & Governance         26 acronyms   ███████
-  12. Serverless & Messaging          26 acronyms   ███████
+   9. Software Development            40 acronyms   ███████████
+  10. Observability & SRE             34 acronyms   ██████████
+  11. Architecture & Cloud Models     33 acronyms   █████████
+  12. Compliance & Governance         26 acronyms   ███████
+  13. Serverless & Messaging          26 acronyms   ███████
 ──────────────────────────────────────────────────────────────────
 ☁️  BY CLOUD PROVIDER / ECOSYSTEM
 ──────────────────────────────────────────────────────────────────
@@ -309,20 +310,21 @@ acronomicon quiz
 
 ## 📚 The Twelve Sacred Tomes (Categories)
 
-The Acronomicon organizes **857+ acronyms** across **12 core disciplines** and **11 ecosystem tags** (`AWS`, `Azure`, `GCP`, `CNCF`, `VMware`, `Red Hat`, `SUSE`, `Linux`, `Docker`, `👔 Corporate`, `👾 Nerdism`, `Cloud-Agnostic`):
+The Acronomicon organizes **917+ acronyms** across **13 core disciplines** and **11 ecosystem tags** (`AWS`, `Azure`, `GCP`, `CNCF`, `VMware`, `Red Hat`, `SUSE`, `Linux`, `Docker`, `👔 Corporate`, `👾 Nerdism`, `Cloud-Agnostic`):
 
 | Tome (Category) | Count | Sample Acronyms Inside |
 | :--- | :---: | :--- |
-| 🔐 **Security & Identity** | **141** | `IAM`, `mTLS`, `OIDC`, `OAuth`, `SAML`, `RBAC`, `ABAC`, `ZTNA`, `SASE`, `CNAPP`, `CSPM`, `CWPP`, `SIEM`, `SOAR`, `KMS`, `HSM`, `PKI`, `IRSA`, `EKSPODID`, `ENTRA-ID`, `PIM`, `MSI`, `AKV`, `WIF`, `IAP`, `BEYONDCORP`, `TETRAGON`, `COSIGN`, `SIGSTORE`, `DFW`, `SELINUX`, `FREEIPA`, `SSSD` |
+| 🔐 **Security & Identity** | **142** | `IAM`, `mTLS`, `OIDC`, `OAuth`, `SAML`, `RBAC`, `ABAC`, `ZTNA`, `SASE`, `CNAPP`, `CSPM`, `CWPP`, `SIEM`, `SOAR`, `KMS`, `HSM`, `PKI`, `IRSA`, `EKSPODID`, `ENTRA-ID`, `PIM`, `MSI`, `AKV`, `WIF`, `IAP`, `BEYONDCORP`, `TETRAGON`, `COSIGN`, `SIGSTORE`, `DFW`, `SELINUX`, `FREEIPA`, `SSSD` |
 | ☸️ **Containers & K8s** | **123** | `K8s`, `K3s`, `EKS`, `GKE`, `AKS`, `ARO`, `ROSA`, `OCP`, `OKD`, `RHCOS`, `RANCHER`, `RKE2`, `CNI`, `CSI`, `CRI`, `CRD`, `ETCD`, `HELM`, `HPA`, `KEDA`, `CONTAINERD`, `CRI-O`, `RUNC`, `CRUN`, `KATA`, `BUILDAH`, `SKOPEO`, `KANIKO`, `BUILDKIT`, `BUILDX`, `COMPOSE`, `SWARM`, `APISERVER`, `KUBELET`, `GW-API`, `NETPOL`, `ARGO-ROLLOUTS`, `VELERO`, `TANZU` |
-| 🌐 **Networking** | **119** | `VPC`, `CIDR`, `BGP`, `ANYCAST`, `eBPF`, `XDP`, `NAT`, `SNAT`, `ALB`, `NLB`, `GWLB`, `TGW`, `DX`, `DXGW`, `AFD`, `AGW`, `AGIC`, `VWAN`, `ARS`, `GLB-GCP`, `PSC`, `VTEP`, `GENEVE-TEP`, `T0-GW`, `T1-GW`, `VDS`, `CALICO`, `FLANNEL`, `MULTUS`, `METALLB`, `EVPN`, `MP-BGP`, `LACP`, `MLAG`, `MACSEC`, `INFINIBAND`, `DMVPN`, `IPROUTE2`, `IPVS` |
-| 💾 **Storage & Databases** | **99** | `S3`, `EBS`, `EFS`, `FSxN`, `FSxL`, `RDS`, `AURORA`, `DYNAMODB`, `DAX`, `REDSHIFT`, `DOCUMENTDB`, `ADLS`, `ANF`, `COSMOS-DB`, `SYNAPSE`, `FABRIC`, `SQL-MI`, `BIGTABLE`, `SPANNER`, `ALLOYDB`, `FIRESTORE`, `HYPERDISK`, `VSAN`, `VMFS`, `VVOLS`, `LONGHORN`, `ROOK-CEPH`, `BTRFS`, `SNAPPER`, `DRBD`, `NVMe`, `IOPS`, `RAFT`, `PAXOS`, `ACID` |
-| ⚡ **Compute** | **92** | `EC2`, `GCE`, `AL2023`, `BOTTLEROCKET`, `GRAVITON`, `INFERENTIA`, `TRAINIUM`, `AVD`, `ASH`, `AZURE-ARC`, `ANTHOS`, `COS-GCP`, `DATAPROC`, `ESXi`, `VSPHERE`, `VCENTER`, `VMKERNEL`, `VMOTION`, `DRS-VMW`, `VCF`, `HCX`, `PROXMOX`, `XCP-NG`, `NUTANIX-AHV`, `HARVESTER`, `KUBEVIRT`, `RHEL`, `SLES`, `SLE-MICRO`, `IO-URING`, `EEVDF`, `VT-X`, `AMD-V`, `GPU`, `TPU` |
+| 🌐 **Networking** | **126** | `VPC`, `CIDR`, `BGP`, `ANYCAST`, `eBPF`, `XDP`, `NAT`, `SNAT`, `ALB`, `NLB`, `GWLB`, `TGW`, `DX`, `DXGW`, `AFD`, `AGW`, `AGIC`, `VWAN`, `ARS`, `GLB-GCP`, `PSC`, `VTEP`, `GENEVE-TEP`, `T0-GW`, `T1-GW`, `VDS`, `CALICO`, `FLANNEL`, `MULTUS`, `METALLB`, `EVPN`, `MP-BGP`, `LACP`, `MLAG`, `MACSEC`, `INFINIBAND`, `DMVPN`, `IPROUTE2`, `IPVS` |
+| 💾 **Storage & Databases** | **101** | `S3`, `EBS`, `EFS`, `FSxN`, `FSxL`, `RDS`, `AURORA`, `DYNAMODB`, `DAX`, `REDSHIFT`, `DOCUMENTDB`, `ADLS`, `ANF`, `COSMOS-DB`, `SYNAPSE`, `FABRIC`, `SQL-MI`, `BIGTABLE`, `SPANNER`, `ALLOYDB`, `FIRESTORE`, `HYPERDISK`, `VSAN`, `VMFS`, `VVOLS`, `LONGHORN`, `ROOK-CEPH`, `BTRFS`, `SNAPPER`, `DRBD`, `NVMe`, `IOPS`, `RAFT`, `PAXOS`, `ACID` |
+| ⚡ **Compute** | **101** | `EC2`, `GCE`, `AL2023`, `BOTTLEROCKET`, `GRAVITON`, `INFERENTIA`, `TRAINIUM`, `AVD`, `ASH`, `AZURE-ARC`, `ANTHOS`, `COS-GCP`, `DATAPROC`, `ESXi`, `VSPHERE`, `VCENTER`, `VMKERNEL`, `VMOTION`, `DRS-VMW`, `VCF`, `HCX`, `PROXMOX`, `XCP-NG`, `NUTANIX-AHV`, `HARVESTER`, `KUBEVIRT`, `RHEL`, `SLES`, `SLE-MICRO`, `IO-URING`, `EEVDF`, `VT-X`, `AMD-V`, `GPU`, `TPU` |
 | 👔 **Corporate & Manager Speak** | **72** | `PIP`, `RIF`, `RTO-OFFICE`, `WFH`, `OOO`, `PTO`, `1ON1`, `ALL-HANDS`, `TC`, `RSU`, `ESPP`, `MVP`, `POC`, `GA-CORP`, `EOL-CORP`, `SLA-SALES`, `ARR`, `MRR`, `CAC`, `LTV`, `EBITDA`, `BURN-RATE`, `RUNWAY`, `HERO-CULTURE`, `KUDOS`, `BURNOUT`, `TECH-DEBT`, `REFACTOR`, `SCOPE-CREEP`, `STANDUP`, `RETRO`, `BACKLOG`, `BANDWIDTH`, `CIRCLE-BACK`, `TABLE-THIS`, `YAK-SHAVING`, `BIKE-SHEDDING` |
 | 👾 **IT Folklore & Nerdisms** | **51** | `PEBKAC`, `ID10T`, `BOFH`, `PICNIC`, `LAYER-8`, `RTFM`, `1337`, `PWN`, `BSOD`, `KERNEL-PANIC`, `HEISENBUG`, `BOHRBUG`, `MANDELBUG`, `SCHROEDINBUG`, `BUS-FACTOR`, `CARGO-CULT`, `CODE-SMELL`, `RUBBER-DUCK`, `MAGIC-NUMBER`, `SNEAKERNET`, `PERCUSSIVE-MAINT`, `FORK-BOMB`, `FUBAR`, `SNAFU`, `GIGO`, `GURU-MEDITATION`, `LART`, `LUSER`, `PHREAKING`, `TURTLES` |
 | 🔄 **DevOps & IaC** | **42** | `CI/CD`, `IaC`, `GitOps`, `TF`, `TOFU`, `CDK`, `CFN`, `BICEP`, `ARM-AZURE`, `ADO`, `AZ-PIPELINES`, `CLOUD-BUILD`, `CLOUD-DEPLOY`, `COMPOSER`, `TEKTON`, `AAP`, `AWX`, `SATELLITE`, `KICKSTART`, `YAST`, `ZYPPER`, `DNF`, `RPM`, `SBOM`, `SLSA`, `DORA`, `CANARY` |
+| 🧰 **Software Development** | **40** | `IDE`, `REPL`, `LSP`, `TDD`, `BDD`, `SDLC`, `SCM`, `SemVer`, `SOLID`, `YAGNI`, `OOP`, `ABI`, `JS`, `TS`, `HTML`, `CSS`, `DOM`, `UTF` |
 | 🏛️ **Architecture & Cloud Models** | **33** | `IaaS`, `PaaS`, `SaaS`, `FaaS`, `CaaS`, `DBaaS`, `XaaS`, `MSA`, `SOA`, `EDA`, `CQRS`, `SAGA`, `BFF`, `HA`, `DR`, `RTO`, `RPO`, `SPOF`, `MULTI-AZ`, `WAR-AWS`, `SRM-VMW`, `RG-AZURE` |
-| 📈 **Observability & SRE** | **33** | `SRE`, `SLA`, `SLO`, `SLI`, `OTel`, `ADOT`, `AMP`, `AMG`, `CLOUDWATCH`, `X-RAY`, `OPENSEARCH`, `AZ-MONITOR`, `APP-INSIGHTS`, `ADX`, `KQL`, `LA`, `MQL`, `APM`, `RUM`, `LGTM`, `PROM`, `ELK`, `BPFTRACE`, `JOURNALD`, `SAR`, `MTBF`, `MTTR` |
+| 📈 **Observability & SRE** | **34** | `SRE`, `SLA`, `SLO`, `SLI`, `OTel`, `ADOT`, `AMP`, `AMG`, `CLOUDWATCH`, `X-RAY`, `OPENSEARCH`, `AZ-MONITOR`, `APP-INSIGHTS`, `ADX`, `KQL`, `LA`, `MQL`, `APM`, `RUM`, `LGTM`, `PROM`, `ELK`, `BPFTRACE`, `JOURNALD`, `SAR`, `MTBF`, `MTTR` |
 | 📜 **Compliance & Governance** | **26** | `SOC 2`, `ISO 27001`, `HIPAA`, `PCI DSS`, `GDPR`, `CCPA`, `FedRAMP`, `FIPS`, `NIST`, `CIS`, `FinOps`, `ORGS`, `CONTROL-TOWER`, `AZURE-POLICY`, `MG-AZURE`, `PURVIEW`, `DATAPLEX`, `CUD`, `SUD`, `AHB`, `CAPEX`, `OPEX`, `TCO`, `RI` |
 | 📨 **Serverless & Messaging** | **26** | `LAMBDA`, `SQS`, `SNS`, `SES`, `EVENTBRIDGE`, `APPRUNNER`, `APPSYNC`, `CLOUD-RUN`, `PUBSUB-LITE`, `ASB`, `EVENT-HUBS`, `EVENT-GRID`, `LOGIC-APPS`, `KAFKA`, `MSK`, `MSK-CONNECT`, `DLQ`, `FIFO`, `AMQP`, `MQTT`, `WASM`, `WASI`, `DAPR`, `KNATIVE` |
 
@@ -357,7 +359,7 @@ flowchart LR
     User(["👩‍💻 Engineer\n(Terminal / CMD / PowerShell)"]) --> CLI["main.go\nCLI & REPL Dispatcher"]
     CLI --> TermInit["term_windows.go / term_other.go\nUTF-8 (CP65001) + ANSI VT100"]
     CLI --> Engine["internal/data\nLookup • Alias • Levenshtein • Search"]
-    Engine --> DB[("857+ Curated Entries\nAWS • Azure • GCP • K8s • VMware • Linux • Corporate • Nerdisms")]
+    Engine --> DB[("917+ Curated Entries\nAWS • Azure • GCP • K8s • VMware • Linux • Corporate • Nerdisms")]
     CLI --> UI["internal/ui\nANSI Card Renderer • Charts • Quiz"]
 ```
 
@@ -370,7 +372,7 @@ flowchart LR
 ## 🛠️ Building & Packaging from Source
 
 ```bash
-# Run the test suite (verifies 857+ entries, zero duplicates, A-Z coverage, search & fuzzy matching)
+# Run the test suite (verifies 917+ entries, zero duplicates, A-Z coverage, search & fuzzy matching)
 make test
 
 # Build local binary
