@@ -1,4 +1,4 @@
-.PHONY: all test build dist windows macos macos-app macos-pkg macos-zip windows-zip package clean
+.PHONY: all test build dist windows macos macos-app macos-pkg macos-zip windows-zip scoop-manifest package clean
 
 VERSION ?= $(shell git describe --tags --exact-match 2>/dev/null || echo dev)
 LDFLAGS := -s -w -X main.version=$(VERSION)
@@ -94,6 +94,37 @@ windows-zip: windows
 		(cd $(STAGE)/windows/$$arch && zip -X -r -q ../../../acronomicon-windows-$$arch-package.zip Acronomicon -x '*.DS_Store'); \
 	done
 	rm -rf $(STAGE)/windows
+
+# Scoop bucket manifest (this repo's bucket/ dir). Run after a release build; not part of dist.
+# note: printf instead of a heredoc, since Make's line continuation would leak into the JSON.
+scoop-manifest: windows
+	mkdir -p bucket
+	amd64=$$(shasum -a 256 dist/acronomicon-windows-amd64.exe | cut -d' ' -f1); \
+	arm64=$$(shasum -a 256 dist/acronomicon-windows-arm64.exe | cut -d' ' -f1); \
+	printf '%s\n' \
+	  '{' \
+	  '  "version": "$(PKGVER)",' \
+	  '  "description": "Terminal encyclopedia of cloud, infrastructure and IT acronyms.",' \
+	  '  "homepage": "https://github.com/espresso20/acronomicon",' \
+	  '  "architecture": {' \
+	  '    "64bit": {' \
+	  '      "url": "https://github.com/espresso20/acronomicon/releases/download/v$(PKGVER)/acronomicon-windows-amd64.exe#/acronomicon.exe",' \
+	  '      "hash": "'"$$amd64"'"' \
+	  '    },' \
+	  '    "arm64": {' \
+	  '      "url": "https://github.com/espresso20/acronomicon/releases/download/v$(PKGVER)/acronomicon-windows-arm64.exe#/acronomicon.exe",' \
+	  '      "hash": "'"$$arm64"'"' \
+	  '    }' \
+	  '  },' \
+	  '  "bin": "acronomicon.exe",' \
+	  '  "checkver": "github",' \
+	  '  "autoupdate": {' \
+	  '    "architecture": {' \
+	  '      "64bit": { "url": "https://github.com/espresso20/acronomicon/releases/download/v$$version/acronomicon-windows-amd64.exe#/acronomicon.exe" },' \
+	  '      "arm64": { "url": "https://github.com/espresso20/acronomicon/releases/download/v$$version/acronomicon-windows-arm64.exe#/acronomicon.exe" }' \
+	  '    }' \
+	  '  }' \
+	  '}' > bucket/acronomicon.json
 
 clean:
 	rm -rf acronomicon dist cmd/windows-installer/payload/*.exe

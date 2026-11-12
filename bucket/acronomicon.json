@@ -1,0 +1,23 @@
+{
+  "version": "0.1.1",
+  "description": "Terminal encyclopedia of cloud, infrastructure and IT acronyms.",
+  "homepage": "https://github.com/espresso20/acronomicon",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/espresso20/acronomicon/releases/download/v0.1.1/acronomicon-windows-amd64.exe#/acronomicon.exe",
+      "hash": "89c8f6efa52676023d00fc5a777cda156220d7b9dae911369a39c871a53a5973"
+    },
+    "arm64": {
+      "url": "https://github.com/espresso20/acronomicon/releases/download/v0.1.1/acronomicon-windows-arm64.exe#/acronomicon.exe",
+      "hash": "85fe1d330c25c17737f05968fc6f162466fdafcdb2191b6d48eb0ec6873b0cfe"
+    }
+  },
+  "bin": "acronomicon.exe",
+  "checkver": "github",
+  "autoupdate": {
+    "architecture": {
+      "64bit": { "url": "https://github.com/espresso20/acronomicon/releases/download/v$version/acronomicon-windows-amd64.exe#/acronomicon.exe" },
+      "arm64": { "url": "https://github.com/espresso20/acronomicon/releases/download/v$version/acronomicon-windows-arm64.exe#/acronomicon.exe" }
+    }
+  }
+}
