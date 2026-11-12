@@ -112,6 +112,8 @@ func categoryColor(cat string) string {
 		return FgCyan
 	case strings.Contains(cat, "Serverless"):
 		return FgYellow
+	case strings.Contains(cat, "Software"):
+		return FgBlue
 	default:
 		return FgBrightWhite
 	}
