@@ -18,7 +18,7 @@
 
 [![Go Version](https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/)
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero_(Pure_Stdlib)-success?style=for-the-badge&logo=checkmarx&logoColor=white)](#️-under-the-hood)
-[![Acronyms](https://img.shields.io/badge/Acronyms-917%2B_(A--Z)-f59e0b?style=for-the-badge&logo=bookstack&logoColor=white)](#-the-twelve-sacred-tomes-categories)
+[![Acronyms](https://img.shields.io/badge/Acronyms-917%2B_(A--Z)-f59e0b?style=for-the-badge&logo=bookstack&logoColor=white)](#-the-thirteen-sacred-tomes-categories)
 [![Platforms](https://img.shields.io/badge/Platform-macOS_%7C_Windows_%7C_Linux-8b5cf6?style=for-the-badge&logo=windowsterminal&logoColor=white)](#-installation)
 
 <p align="center">
@@ -29,9 +29,9 @@
 [⚡ Quick Start](#-quick-start) •
 [📦 Installation](#-installation) •
 [🖥️ Terminal Showcase](#️-terminal-showcase) •
-[👔 Manager Speak Tome](#-the-twelve-sacred-tomes-categories) •
-[👾 IT Folklore & Nerdisms](#-the-twelve-sacred-tomes-categories) •
-[📚 The 12 Tomes](#-the-twelve-sacred-tomes-categories) •
+[👔 Manager Speak Tome](#-the-thirteen-sacred-tomes-categories) •
+[👾 IT Folklore & Nerdisms](#-the-thirteen-sacred-tomes-categories) •
+[📚 The 13 Tomes](#-the-thirteen-sacred-tomes-categories) •
 [🪄 Grimoire of Spells](#-grimoire-of-spells-cli--repl) •
 [🛠️ Building](#️-building--packaging-from-source)
 
@@ -308,7 +308,7 @@ acronomicon quiz
 
 ---
 
-## 📚 The Twelve Sacred Tomes (Categories)
+## 📚 The Thirteen Sacred Tomes (Categories)
 
 The Acronomicon organizes **917+ acronyms** across **13 core disciplines** and **11 ecosystem tags** (`AWS`, `Azure`, `GCP`, `CNCF`, `VMware`, `Red Hat`, `SUSE`, `Linux`, `Docker`, `👔 Corporate`, `👾 Nerdism`, `Cloud-Agnostic`):
 
